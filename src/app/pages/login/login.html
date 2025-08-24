@@ -1,0 +1,56 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-50 to-purple-100 p-4">
+  <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md relative">
+    
+    <h2 class="text-3xl font-bold text-center text-blue-600 mb-8 animate-pulse">
+      Login <span class="text-yellow-400">Now!</span>
+    </h2>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate>
+      <!-- Username -->
+      <div class="mb-4">
+        <label class="block mb-1 font-semibold text-gray-700">Username</label>
+        <input
+          type="text"
+          name="username"
+          [(ngModel)]="formData.username"
+          #username="ngModel"
+          class="border rounded-xl w-full px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none transition shadow-sm"
+          placeholder="Enter your username"
+          required
+        />
+        <div *ngIf="username.invalid && username.touched" class="text-red-500 text-sm mt-1">Username is required.</div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-6">
+        <label class="block mb-1 font-semibold text-gray-700">Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="formData.password"
+          #password="ngModel"
+          class="border rounded-xl w-full px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none transition shadow-sm"
+          placeholder="Enter your password"
+          required
+        />
+        <div *ngIf="password.invalid && password.touched" class="text-red-500 text-sm mt-1">Password is required.</div>
+      </div>
+
+      <!-- Submit Button with Loader -->
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid || loading"
+        class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-500 hover:cursor-pointer text-white w-full py-3 rounded-xl font-semibold shadow-lg transition transform hover:-translate-y-0.5 flex justify-center items-center"
+      >
+        <span *ngIf="!loading">Login</span>
+        <span *ngIf="loading" class="flex items-center gap-2">
+          <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 100 16v-4l-3 3 3 3v-4a8 8 0 01-8-8z"></path>
+          </svg>
+          Logging in...
+        </span>
+      </button>
+    </form>
+  </div>
+</div>

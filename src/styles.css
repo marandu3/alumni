@@ -1,2 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* Darker background for all toasts */
+.p-toast .p-toast-message {
+  color: #fff !important;           /* white text */
+}
+
+/* Optional: Customize severity-specific colors */
+.p-toast-message-info {
+  background-color: #1d35eb !important; /* slightly lighter dark for info */
+}
+
+.p-toast-message-success {
+  background-color: #1b5e20 !important; /* dark green */
+}
+
+.p-toast-message-warn {
+  background-color: #f57f17 !important; /* dark amber */
+}
+
+.p-toast-message-error {
+  background-color: #b71c1c !important; /* dark red */
+}
+.p-toast-message {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}

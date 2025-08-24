@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://alumni-backend-2-vdv4.onrender.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {"^/api" : ""}
+  }
+}
